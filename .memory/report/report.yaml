@@ -26,8 +26,16 @@ milestones:
 
   - id: M2
     title: 'Home Page'
-    status: pending
-    progress: '0%'
+    status: in_progress
+    progress: '30%'
+    note: >
+      Home.tsx built with all 10 sections (Hero, Audience, Problems, WhyFail,
+      ValueProp, Solutions, Process, Trust, FAQ, CTA). Structure differs from plan
+      (single consolidated file vs individual components) but functionality matches.
+      app/page.tsx SEO metadata also updated.
+    files_matched:
+      - components/home/Home.tsx
+      - app/page.tsx
 
   - id: M3
     title: 'Products — All Categories Page + Category Listing Page'
@@ -63,3 +71,10 @@ commit_history:
     note: >
       Services page not in original plan milestones (M1-M7 focus on product/contact pages).
       Services work tracked separately as bonus deliverable.
+
+  - hash: "c8942e7"
+    message: "refactor(home): consolidate all 10 sections into a single Home.tsx"
+    timestamp: "2026-02-27T13:00:00Z"
+    milestones_touched: [M2]
+    files_committed: 3
+    progress_delta: "M2 pending → in_progress (30%)"

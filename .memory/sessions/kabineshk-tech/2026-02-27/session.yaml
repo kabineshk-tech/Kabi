@@ -79,3 +79,27 @@ memory_updates:
     plan_impact:
       M1: in_progress
     error_refs: []
+
+  # centilio_commit — home page consolidation
+  - hash: "c8942e7"
+    full_hash: "c8942e7"
+    message: "refactor(home): consolidate all 10 sections into a single Home.tsx"
+    type: "refactor"
+    scope: "home"
+    timestamp: "2026-02-27T13:00:00Z"
+    branch: "main"
+    files:
+      - { file: "components/home/Home.tsx", status: "modified", lines_added: 994, lines_removed: 23 }
+      - { file: "app/page.tsx", status: "modified", lines_added: 3, lines_removed: 2 }
+      - { file: "components/home/README.md", status: "modified", lines_added: 8, lines_removed: 6 }
+    insertions: 1000
+    deletions: 25
+    audit:
+      no_inline_style: "warn — Home.tsx:349 dynamic carousel transform translateX (necessary)"
+      template_literal_classname: "fixed — changed to cn() in value-prop steps grid"
+      no_any: pass
+      no_raw_img: pass
+      viewport_once: pass
+    plan_impact:
+      M2: in_progress
+    error_refs: []
