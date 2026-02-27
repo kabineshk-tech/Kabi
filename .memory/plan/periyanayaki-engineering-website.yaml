@@ -1,0 +1,372 @@
+plan_name: periyanayaki-engineering-website
+title: 'Periyanayaki Engineering — Business Website Clone'
+description: >
+  Frontend-only implementation plan to duplicate periyanayaki.in /
+  periyanayakikitchenengineering.com — a commercial kitchen & bakery
+  equipment manufacturer based in Coimbatore, Tamil Nadu.
+  Covers all pages, product categories, enquiry form, and contact section.
+  No backend needed — enquiry form uses a mailto or static handler placeholder.
+source_website: 'https://www.periyanayakikitchenengineering.com/'
+scope: frontend
+created_at: '2026-02-27'
+last_updated: '2026-02-27'
+overall_status: pending
+overall_progress: '0%'
+tech_stack:
+  framework: 'Next.js 15 + TypeScript (strict)'
+  language: 'TypeScript (strict)'
+  routing: 'Next.js App Router (file-based)'
+  forms: 'react-hook-form + zod'
+  styling: 'Tailwind CSS v4'
+  icons: lucide-react
+  notifications: react-toastify
+  maps: 'Google Maps embed (iframe)'
+site_structure:
+  pages:
+    - '/ — Home'
+    - '/products — All Categories'
+    - '/products/:category — Category Listing'
+    - '/products/:category/:productSlug — Product Detail'
+    - '/about — About Us'
+    - '/testimonials — Testimonials'
+    - '/contact — Contact / Enquiry'
+    - '/sitemap — Sitemap'
+  product_categories:
+    - slug: food-processing-machine
+      label: 'Food Processing Machine'
+      sample_products:
+        - 'Garlic Peeling Machine — ₹12,000/Piece'
+        - 'Idly Making Machine — ₹32,000/Number'
+        - 'Stainless Steel Pulverizer — ₹19,000/Piece'
+        - 'Dough Kneader 15 Kg — ₹25,000/Piece'
+        - 'Rice Washer Machine — ₹18,000/Number'
+    - slug: food-processing-machineries
+      label: 'Food Processing Machineries'
+      sample_products:
+        - 'Vegetables Cutting Machine 2 Hp — ₹52,000/Piece'
+        - 'SS Gravy Machine — ₹15,500/Piece'
+        - 'Tilting Rice Boiler Bulk Cooker — ₹18,000/Piece'
+        - 'Planetary Mixer Machine — ₹39,000/Piece'
+        - 'Flour Mixing Machine — ₹35,000/Piece'
+    - slug: sugarcane-juice-machine
+      label: 'Sugarcane Juice Machine'
+      sample_products:
+        - 'Sugarcane Juice Machine 2HP 300 glass/hr — ₹36,000/Piece'
+        - 'Sugarcane Juice Machine 2HP 500 glass/hr — ₹33,000/Piece'
+        - 'Sugarcane Juice Machine Mini — ₹36,000/Piece'
+        - 'Sugarcane Juice Machine 1HP — ₹18,000/Piece'
+    - slug: wet-grinder
+      label: 'Wet Grinder'
+      sample_products:
+        - '3 Litre Wet Grinder — ₹8,500/Piece'
+        - 'Stainless Steel Instant Wet Grinder — ₹32,000/Piece'
+        - 'Heavy Duty Mixer Grinder 10 Liter — ₹14,000/Piece'
+        - '3hp Gravy Machine — ₹19,500/Piece'
+    - slug: mixer-grinder
+      label: 'Mixer Grinder'
+      sample_products:
+        - 'V Belt Mixer Grinder — ₹26,000/Piece'
+        - 'Besan Flour Mixing Machine — ₹28,000/Piece'
+        - 'Commercial Tilting Mixer Grinder — ₹40,000/Piece'
+        - '10 Litre Commercial Wet Grinder — ₹22,000/Piece'
+    - slug: tilting-wet-grinders
+      label: 'Tilting Wet Grinders'
+      sample_products:
+        - 'SS Commercial Tilting Wet Grinder — ₹28,500/Piece'
+        - 'Tilting Wet Grinder 10L — ₹48,000/Piece'
+        - 'Tilting Wet Grinder 3 Litre — ₹9,000/Piece'
+    - slug: potato-peeler-machine
+      label: 'Potato Peeler Machine'
+      sample_products:
+        - '20kg Potato Peeler Machine — ₹18,000/Piece'
+        - 'Mango Juicer Machine — ₹45,000/Piece'
+        - 'Potato Peeler Machine (Commercial) — ₹18,000/Piece'
+    - slug: commercial-vegetable-cutting-machine
+      label: 'Commercial Vegetable Cutting Machine'
+      sample_products:
+        - 'SS Vegetable Cutting Machine — ₹19,500/Piece'
+        - 'Cabbage Cutting Machine — ₹21,000/Piece'
+        - 'Vegetables Cutting Machine 2 Hp — ₹48,000/Piece'
+milestones:
+  - id: M1
+    title: 'Project Setup & Global Layout (Navbar + Footer)'
+    status: pending
+    priority: 1
+    estimated_effort: '1 day'
+    description: >
+      Scaffold the Next.js 15 + TypeScript project, configure routing,
+      and build the shared Navbar and Footer that appear on every page.
+    files_to_create:
+      layout:
+        - components/layout/Navbar.tsx
+        - components/layout/Footer.tsx
+      routing:
+        - app/layout.tsx
+        - lib/routes.ts
+      styles:
+        - app/globals.css
+      data:
+        - data/categories.ts
+        - data/products.ts
+    ui_spec:
+      Navbar:
+        logo: 'Periyanayaki Engineering logo + company name'
+        links: ['Home', 'Products & Services (dropdown)', 'About Us', 'Contact Us']
+        dropdown:
+          - 'All Categories'
+          - 'Food Processing Machine'
+          - 'Food Processing Machineries'
+          - 'Sugarcane Juice Machine'
+          - 'Wet Grinder'
+          - 'Mixer Grinder'
+          - 'Tilting Wet Grinders'
+          - 'Potato Peeler Machine'
+          - 'Commercial Vegetable Cutting Machine'
+        cta: 'Send Enquiry button (links to /contact)'
+      Footer:
+        columns:
+          - 'Company: About Us, Testimonials, Sitemap, Contact Us'
+          - 'Products & Services: all 8 category links'
+        bottom: 'Copyright notice + social share icons'
+    acceptance_criteria:
+      - 'Navbar renders all links with working dropdown'
+      - 'Active route highlighted in nav'
+      - 'Footer shows all category + company links'
+      - 'Layout wraps all pages with Navbar + Footer'
+      - 'Responsive at 375px / 768px / 1280px'
+
+  - id: M2
+    title: 'Home Page'
+    status: pending
+    priority: 2
+    estimated_effort: '2 days'
+    description: >
+      Build the homepage with hero banner, featured product cards,
+      category grid, about snippet, and contact CTA.
+    files_to_create:
+      pages:
+        - app/page.tsx
+      components:
+        - components/home/HeroBanner.tsx
+        - components/home/CategoryGrid.tsx
+        - components/home/FeaturedProducts.tsx
+        - components/home/AboutSnippet.tsx
+        - components/home/CompanyStats.tsx
+    ui_spec:
+      HeroBanner:
+        content: 'Headline, tagline, Get Quote CTA button'
+        note: 'Rotating banner or static full-width image'
+      CategoryGrid:
+        layout: '4-column grid of category cards with icon + label'
+        items: 'All 8 product categories'
+        action: 'Click navigates to /products/:category'
+      FeaturedProducts:
+        layout: '3-4 product cards in a row'
+        card_shows: ['product image placeholder', 'name', 'price', 'Get Quote button']
+      AboutSnippet:
+        content: 'Short company description, Nature of Business, Employee count, GST info'
+        cta: 'Read More → /about'
+      CompanyStats:
+        items:
+          - 'Nature of Business: Manufacturer'
+          - 'Employees: 11–25'
+          - 'GST Registration: 05-10-2018'
+          - 'Legal Status: Proprietorship'
+          - 'Annual Turnover: 0–40 L'
+    acceptance_criteria:
+      - 'All 8 categories render in the grid'
+      - 'Featured products show correct price and specs'
+      - 'Get Quote buttons link to /contact with product pre-filled'
+      - 'Responsive at all 3 breakpoints'
+
+  - id: M3
+    title: 'Products — All Categories Page + Category Listing Page'
+    status: pending
+    priority: 3
+    estimated_effort: '2 days'
+    description: >
+      /products shows all 8 category cards.
+      /products/:category shows all products in that category
+      with filtering and a Get Quote action per card.
+    files_to_create:
+      pages:
+        - app/products/page.tsx
+        - app/products/[category]/page.tsx
+      components:
+        - components/products/CategoryCard.tsx
+        - components/products/ProductCard.tsx
+        - components/products/ProductFilters.tsx
+    ui_spec:
+      Products:
+        layout: 'Grid of 8 CategoryCards'
+        card_shows: ['category image', 'label', 'View All link']
+      CategoryListing:
+        layout: 'Breadcrumb + product grid (3 columns desktop, 1 mobile)'
+        ProductCard_shows:
+          - 'Product image placeholder'
+          - 'Name (links to detail)'
+          - 'Price (₹ X / Unit)'
+          - 'Key specs (2-3 bullet points)'
+          - 'Get Quote button'
+      ProductFilters:
+        options: 'Sort by price (low/high), filter by automation grade, material'
+    acceptance_criteria:
+      - 'All 8 categories appear on /products'
+      - 'Navigating to /products/wet-grinder shows only wet grinder products'
+      - 'Get Quote button opens enquiry form or navigates to /contact?product=...'
+      - 'Breadcrumb shows: Home > Products > Category Name'
+      - 'Responsive grid at all 3 breakpoints'
+
+  - id: M4
+    title: 'Product Detail Page'
+    status: pending
+    priority: 4
+    estimated_effort: '1-2 days'
+    description: >
+      Dedicated page for a single product showing full specs,
+      images, description, and Get Quote form.
+    files_to_create:
+      pages:
+        - app/products/[category]/[productSlug]/page.tsx
+      components:
+        - components/products/ProductImageGallery.tsx
+        - components/products/ProductSpecTable.tsx
+    ui_spec:
+      layout: 'Two-column: left image gallery, right specs + CTA'
+      shows:
+        - 'Product name + price'
+        - 'Image gallery (placeholder thumbnails)'
+        - 'Key specs table (capacity, material, motor power, automation grade, etc.)'
+        - 'Full description paragraph'
+        - 'Get Quote button (links to /contact?product=...)'
+      breadcrumb: 'Home > Products > Category > Product Name'
+    acceptance_criteria:
+      - 'Correct product data loads from data/products.ts by slug'
+      - 'Specs table renders all available key-value pairs'
+      - 'Get Quote passes product name to the contact form'
+      - 'Breadcrumb is fully linked'
+      - 'Mobile: stacked layout, image on top'
+
+  - id: M5
+    title: 'About Us & Testimonials Pages'
+    status: pending
+    priority: 5
+    estimated_effort: '1 day'
+    description: >
+      Static About Us page with company history and business facts.
+      Testimonials page with customer quotes.
+    files_to_create:
+      pages:
+        - app/about/page.tsx
+        - app/testimonials/page.tsx
+      data:
+        - data/testimonials.ts
+    ui_spec:
+      About:
+        sections:
+          - 'Welcome message + company description'
+          - 'Business info grid: Nature, Employees, GST, Turnover, Legal Status'
+          - 'GST No. and TrustSeal Verified badge'
+          - 'Download Brochure button (placeholder PDF link)'
+      Testimonials:
+        layout: 'Card grid of customer testimonials with name, rating, quote'
+    acceptance_criteria:
+      - 'All company facts match the source site'
+      - 'Brochure download button renders (can be a placeholder href)'
+      - 'Testimonials page renders at least 3 sample testimonial cards'
+
+  - id: M6
+    title: 'Contact / Enquiry Page'
+    status: pending
+    priority: 6
+    estimated_effort: '1-2 days'
+    description: >
+      Contact page with enquiry form (name, contact, email, requirement),
+      company address, phone number, and embedded Google Maps.
+    files_to_create:
+      pages:
+        - app/contact/page.tsx
+      components:
+        - components/contact/EnquiryForm.tsx
+        - components/contact/ContactInfo.tsx
+        - components/contact/MapEmbed.tsx
+      utils:
+        - 'lib/validation.ts — add enquirySchema (name, phone, email, requirement)'
+    ui_spec:
+      contact_info:
+        name: 'Surya (Marketing Manager)'
+        company: 'Periyanayaki Engineering'
+        address: 'No. 105, Abbai Naidu Layout, PN. Palayam Road, Ganapathy, Coimbatore - 641006, Tamil Nadu, India'
+        phone: '08047313242'
+        gst: '33KFCPS6143K1Z1'
+      EnquiryForm:
+        fields:
+          - 'salutation (Mr./Ms./Mrs./Dr.)'
+          - 'name (required)'
+          - 'phone (required)'
+          - 'email (required, valid email format)'
+          - 'requirement / message (textarea, required)'
+        action: 'Submit — shows success toast, resets form (mailto or console.log placeholder)'
+      MapEmbed:
+        coordinates: '11.02976, 76.97848'
+        note: 'Google Maps iframe embed centred on Ganapathy, Coimbatore'
+    acceptance_criteria:
+      - 'Form validates with Zod — all required fields enforced'
+      - 'Success toast on submission'
+      - 'Map iframe renders correctly at all breakpoints'
+      - 'Contact info matches source site exactly'
+      - 'URL param ?product= pre-fills requirement field'
+
+  - id: M7
+    title: 'UI/UX Polish — Responsive, Accessibility, SEO Meta'
+    status: pending
+    priority: 7
+    estimated_effort: '1-2 days'
+    description: >
+      Final polish pass. Audit all breakpoints, add page titles/meta tags,
+      loading states, empty states, and ARIA attributes across all pages.
+    tasks:
+      - 'Audit all pages at 375px / 768px / 1280px — fix layout breaks'
+      - 'Add metadata export per page (Next.js generateMetadata)'
+      - 'Add aria-label to all icon-only buttons'
+      - 'Add skeleton loaders for product listing pages'
+      - 'Ensure min 44px touch targets on all interactive elements'
+      - 'Verify no horizontal scroll at any breakpoint'
+      - 'Add focus-visible ring styles for keyboard navigation'
+      - 'Add empty state to category listing when no products match filter'
+      - 'Review and finalise Tailwind tokens and brand colours'
+    acceptance_criteria:
+      - 'No horizontal overflow at 375px on any page'
+      - 'All icon-only buttons have aria-label'
+      - 'Each page has a unique <title> tag via metadata export'
+      - 'Empty states guide users to take next action'
+      - 'Min 44px touch targets on all interactive elements'
+
+new_directories:
+  - app/products/
+  - app/products/[category]/
+  - app/products/[category]/[productSlug]/
+  - app/about/
+  - app/testimonials/
+  - app/contact/
+  - components/layout/
+  - components/home/
+  - components/products/
+  - components/contact/
+  - data/
+  - lib/
+
+existing_files_to_modify:
+  - 'app/layout.tsx — wrap with Navbar + Footer, add global metadata'
+  - 'app/globals.css — add brand colour tokens, base styles'
+  - 'lib/validation.ts — add enquirySchema'
+  - 'components/layout/Header.tsx — update to final Navbar design'
+
+out_of_scope:
+  - 'Real backend / database for products or enquiries'
+  - 'Admin panel to manage products'
+  - 'Payment / checkout flow'
+  - 'IndiaMART integration'
+  - 'PDF brochure generation (static file placeholder only)'
+  - 'Live chat widget'
+  - 'User authentication'

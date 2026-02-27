@@ -46,3 +46,6 @@ next-env.d.ts
 !.memory/sessions/
 !.memory/plan/
 !.memory/report/
+
+# Reference design screenshots — local only
+reference/
