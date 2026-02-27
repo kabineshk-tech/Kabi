@@ -44,3 +44,38 @@ memory_updates:
     insertions: 36
     deletions: 0
     error_refs: []
+
+  # centilio_commit — services page + header + plan
+  - hash: "26ded45"
+    full_hash: "26ded459f3b2a0e8c1d4f7aa5b8e2c0d3f6a9b1e"
+    message: "feat(services): add services page, update header, and add project plan"
+    type: "feat"
+    scope: "services"
+    timestamp: "2026-02-27T12:00:00Z"
+    branch: "main"
+    files_committed: 45
+    files:
+      - { file: "app/services/page.tsx", status: "added" }
+      - { file: "components/services/ServiceHero.tsx", status: "added" }
+      - { file: "components/services/ServicesCarousel.tsx", status: "added" }
+      - { file: "components/services/ServiceFor.tsx", status: "added" }
+      - { file: "components/services/ProblemsSolved.tsx", status: "added" }
+      - { file: "components/services/HowItWorks.tsx", status: "added" }
+      - { file: "components/services/WhyDifferent.tsx", status: "added" }
+      - { file: "components/services/ServiceCTA.tsx", status: "added" }
+      - { file: "components/layout/Header.tsx", status: "modified" }
+      - { file: ".memory/plan/periyanayaki-engineering-website.yaml", status: "added" }
+      - { file: ".gitignore", status: "modified" }
+      - { file: "public/images/service page-1/ (33 assets)", status: "added" }
+    insertions: 1300
+    deletions: 7
+    audit:
+      use_client: pass
+      viewport_once: pass
+      trailing_slash: pass
+      no_raw_img: pass
+      no_any: pass
+      no_inline_style: "warn — ServicesCarousel.tsx:118 dynamic carousel transform (acceptable)"
+    plan_impact:
+      M1: in_progress
+    error_refs: []
