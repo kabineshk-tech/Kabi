@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Centilio memory — selectively tracked
+.memory/*
+!.memory/errors/
+!.memory/sessions/
+!.memory/plan/
+!.memory/report/
